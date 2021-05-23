@@ -13,7 +13,7 @@ public class JpaWiringTest {
 
     @Test
     public void paperPlateCoatingTypeShouldReturnAListOfPaperPlates(){
-        CoatingType
+        CoatingType coated = new CoatingType("coated");
     }
 
 

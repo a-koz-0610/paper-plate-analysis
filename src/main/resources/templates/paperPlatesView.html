@@ -9,9 +9,19 @@
 <h1>PaperPlatesView</h1>
 
 <div th:each="paperPlate:${paperPlatesModel}">
-    <p th:text=" 'Brand: ' + ${paperPlate.brand}" ></p>
+    <p th:text=" 'Brand: ' + ${paperPlate.brand}"></p>
     <p th:text=" 'Description: ' + ${paperPlate.description}"></p>
+    <p th:text=" 'Coating: ' + ${paperPlate.coating.materialType}"></p>
 </div>
+
+<form action="/add-plate" method="POST">
+    <input type="text" name="brand" placeholder="What is the brand of paper plate?">
+    <input type="text" name="description" placeholder="Write a brief review">
+    <input type="text" name="materialType" placeholder="Add a coating type">
+
+    <button type="submit">Add a Plate</button>
+</form>
+
 
 </body>
 </html>

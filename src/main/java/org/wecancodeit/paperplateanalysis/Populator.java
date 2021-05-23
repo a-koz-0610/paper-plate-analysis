@@ -30,6 +30,6 @@ public class Populator implements CommandLineRunner {
         paperPlateRepo.save(plate1);
         paperPlateRepo.save(plate2);
         paperPlateRepo.save(plate3);
-        
+
     }
 }

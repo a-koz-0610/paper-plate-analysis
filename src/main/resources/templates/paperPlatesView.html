@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>PaperPlatesView</h1>
+
+<div th:each="paperPlate:${paperPlatesModel}">
+    <p th:text=" 'Brand: ' + ${paperPlate.brand}" ></p>
+    <p th:text=" 'Description: ' + ${paperPlate.description}"></p>
+</div>
+
+</body>
+</html>

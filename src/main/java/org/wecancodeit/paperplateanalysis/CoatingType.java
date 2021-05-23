@@ -21,6 +21,9 @@ public class CoatingType {
         return materialType;
     }
 
+    //why JPA why!!!!!!!!
+    protected CoatingType(){};
+
     public CoatingType(String materialType) {
         this.materialType = materialType;
     }

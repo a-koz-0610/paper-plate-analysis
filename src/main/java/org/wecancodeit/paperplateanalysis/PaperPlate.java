@@ -3,6 +3,8 @@ package org.wecancodeit.paperplateanalysis;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import java.util.Objects;
 
 @Entity
 public class PaperPlate {
@@ -13,6 +15,8 @@ public class PaperPlate {
 
     private String brand;
     private String description;
+
+    @ManyToOne
     private CoatingType coating;
 
     public Long getId(){
@@ -37,5 +41,18 @@ public class PaperPlate {
         this.brand = brand;
         this.description = description;
         this.coating = coating;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PaperPlate that = (PaperPlate) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -2,9 +2,7 @@ package org.wecancodeit.paperplateanalysis;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Optional;
@@ -44,9 +42,16 @@ public class PaperPlateController {
         PaperPlate plateToAdd = new PaperPlate(brand, description, coatingTypeToAdd);
         paperPlateRepo.save(plateToAdd);
     }
-
-
         return "redirect:/paper-plates/";
     }
+
+
+    @GetMapping("/coating-types/{materialType}")
+    public String displaySingleCoatingType(@PathVariable String materialType, Model model){
+        Optional<CoatingType> retrievedCoatingType = coatingTypeRepo.findByMaterialType(materialType);
+        model.addAttribute("coatingTypeModel", retrievedCoatingType.get());
+        return "coatingTypeView";
+    }
+
 
 }
